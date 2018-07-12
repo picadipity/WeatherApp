@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="modal-title" style="margin-left: 20px; margin-right: 20px; text-align: center;">Enter the name of a city</h5>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="row" style="margin-top: 20px; margin-left: 20px; margin-right: 20px; display: grid">
+        <input autofocus type="text" name="location" id="locationField" maxlength="120" ng-enter="$ctrl.ok()" ng-model="location" placeholder="Enter city...">
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()" data-toggle="tooltip" data-placement="bottom" title="Get weather report">Get Weather</button>
+</div>

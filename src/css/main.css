@@ -1,0 +1,659 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background: linear-gradient(#367CD6, #183968);
+}
+
+/* 242x129 */
+.centered1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -90px;
+  margin-left: -350px;
+}
+
+/* 152x82 */
+.centered2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -120px;
+  margin-left: 115px;
+}
+
+.modal-title {
+  line-height: normal;
+  color: white;
+  margin-left: 5px !important;
+  opacity: 0.7;
+  font-size: 1.2em;
+
+}
+
+.modal-body-forecast {
+  line-height: normal;
+  color: white;
+  padding: 0 !important;
+}
+
+.modal-body-general-error {
+  color: white;
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+.modal {
+  /* next 2 lines is to solve an issue with
+     scrolling the modal dialog on a small screen
+     source: https://github.com/twbs/bootstrap/issues/14839
+     from: digitalhuman commented on Feb 29
+  */
+  -webkit-overflow-scrolling: auto !important;
+  overflow-y: auto !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 400px;
+  }
+}
+
+.panel-forecast {
+  margin: 0 !important;
+  border: none;
+  /*border-radius: 0 !important;*/
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: 100px;
+}
+
+/* after trick from https://stackoverflow.com/a/16625912 */
+.forecast-right-border:after {
+  content: "";
+  background: #ccc;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  height: 70%;
+  width: 1px;
+}
+
+.body-top-border:before {
+  content: "";
+  background: black;
+  position: absolute;
+  left: 7%;
+  width: 86%;
+  height: 1px;
+  opacity: 0.1;
+}
+
+/* Row with equal height columns */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.row-forecast {
+  min-height: 100px;
+}
+
+.vertical-center {
+  margin-top: -10px;
+}
+
+.vertical-center:before {    /* create a full-height inline block pseudo=element */
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;  /* vertical alignment of the inline element */
+  height: 100%;
+}
+
+.remove_left_padding {
+  padding-left: 0;
+}
+
+.remove_right_padding {
+  padding-right: 0;
+}
+
+.panel-body-forecast {
+  padding: 0 !important;
+  min-height: 100px;
+}
+
+.day {
+  color: lightgray;
+  /*font-weight: bold;*/
+  font-size: smaller;
+}
+
+.hightemp {
+  font-weight: bolder;
+  margin-top: -5px;
+}
+
+.lowtemp {
+  color: gray;
+  font-size: smaller;
+}
+
+.search {
+  color: black;
+  opacity: 0.3;
+  margin-left: 15px;
+}
+
+input[type="search"] {
+  width: 280px;
+}
+
+input[type="search"]::-webkit-input-placeholder {
+  color: white !important;
+  background-color: transparent;
+  border: none;
+  width: 280px;
+}
+
+input[type="search"]:-moz-placeholder { /* Firefox 18- */
+  color: white !important;
+  background-color: transparent;
+  border: none;
+  width: 280px;
+}
+
+input[type="search"]::-moz-placeholder {  /* Firefox 19+ */
+  color: white !important;
+  background-color: transparent;
+  border: none;
+  width: 280px;
+}
+
+input[type="search"]:-ms-input-placeholder {
+  color: white !important;
+  background-color: transparent;
+  border: none;
+  width: 280px;
+}
+
+/*::placeholder {*/
+  /*color: white;*/
+  /*background-color: transparent;*/
+  /*opacity: 0.7; !* Firefox *!*/
+/*}*/
+
+/*:-ms-input-placeholder { !* Internet Explorer 10-11 *!*/
+  /*color: white;*/
+/*}*/
+
+/*::-ms-input-placeholder { !* Microsoft Edge *!*/
+  /*color: white;*/
+/*}*/
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.modal.fade.in {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: rgba(74,144,226,0.6)!important;
+  position: relative;
+  opacity: 1.0;
+}
+
+.modal-footer {
+  border: none;
+}
+
+.modal-footer-forecast {
+  padding: 0 !important;
+}
+
+.modal-header {
+  border: none;
+  padding: 15px 15px 10px 15px;
+}
+
+.modal-header .close {
+  margin-top: 7px;
+  margin-right: 15px;
+  color: black;
+  opacity: 0.3;
+  float: right;
+  font-size: small;
+}
+
+.modal-header .search {
+  margin-left: 15px;
+  margin-top: 2px;
+  color: black;
+  opacity: 0.3;
+  float: left;
+  background-color: transparent;
+  border: none;
+}
+
+/*.modal-header .search {*/
+  /*margin-top: -20px;*/
+/*}*/
+
+.modal.in .modal-dialog {
+  background-color: transparent;
+}
+.modal-title h1{
+  font-size: 20.854em;
+  text-align: center;
+  color:#4A90E2;
+  opacity: 1;
+}
+.modal-title h3{
+  font-family:inherit;
+  font-size: inherit;
+  text-align: center;
+  color:#4A90E2;
+}
+.modal-title h4{
+  font-family:inherit;
+  font-size: inherit;
+  text-align: center;
+  color:#4A90E2;
+}
+.modal-title h5{
+  font-family:inherit;
+  font-size: inherit;
+  text-align: center;
+  color:#4A90E2;
+}
+.modal-body-forecast h1{
+  font-size: 10em;
+  text-align: center;
+  opacity: 1;
+}
+.modal-body-forecast h2{
+  font-family:inherit;
+  font-size: 10em;
+  text-align: center;
+  opacity: 1;
+}
+.modal-body-forecast h3{
+  font-family:inherit;
+  font-size: inherit;
+  text-align: center;
+  opacity: 1;
+}
+.modal-body-forecast h4{
+  font-family:inherit;
+  font-size: inherit;
+  text-align: center;
+  opacity: 1;
+}
+.modal-body-forecast h5{
+  font-family:inherit;
+  font-size: inherit;
+  text-align: center;
+  opacity: 1;
+}
+/*.modal-body h3, p{*/
+  /*color: #4A90E2;*/
+/*}*/
+.modal-backdrop {
+  background-color: transparent !important; /* I kept this to show the kind of transparent effect I would like to acheive on tge modal background */
+}
+
+.forecast {
+  font-family:inherit;
+  font-size: 9em;
+  text-align: center;
+  opacity: 1;
+  transform: scale(1, 1.1);
+  -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
+  -moz-transform: scale(1, 1.1); /* Firefox */
+  -ms-transform: scale(1, 1.1); /* IE 9+ */
+  -o-transform: scale(1, 1.1); /* Opera */
+  font-weight: 100;
+}
+
+.forecast-degree {
+  font-family:inherit;
+  text-align: center;
+  opacity: 1;
+  padding-top: 27px;
+  font-size: 4em;
+  transform: scale(1, 1.1);
+  -webkit-transform: scale(1, 1.1); /* Safari and Chrome */
+  -moz-transform: scale(1, 1.1); /* Firefox */
+  -ms-transform: scale(1, 1.1); /* IE 9+ */
+  -o-transform: scale(1, 1.1); /* Opera */
+}
+
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.flexcenter { display: flex; margin-left: auto; margin-right: auto; justify-content: center; }
+.flexaligncenter { display: flex !important; margin-left: auto; margin-right: auto; justify-content: center; align-items: center;}
+.flexaligncenter_sans_right { display: flex !important; margin-left: auto; justify-content: center; align-items: center;}
+.flexaligncenter_sans_left { display: flex !important; margin-right: auto; justify-content: center; align-items: center; padding-bottom: 40px;}
+.degree { display: flex !important; margin-right: 20px; justify-content: center;}
+
+.farenheit {
+  font-size: 2em;
+  margin-top: 18px;
+}
+
+.lightfont {
+  font-weight: 100;
+  opacity: 0.7;
+}
+
+.condition_first_line {
+  margin-top: 10px;
+}
+
+/* #container from https://stackoverflow.com/a/32122011 */
+#container {
+  display: flex;                  /* establish flex container */
+  flex-direction: row;            /* default value; can be omitted */
+  flex-wrap: nowrap;              /* default value; can be omitted */
+
+  width:100%;
+}
+
+.close {
+  color: #fff;
+  /*     opacity: 0.9; */
+}
+
+a.close {
+  color: black;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

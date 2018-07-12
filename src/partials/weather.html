@@ -1,0 +1,88 @@
+<!--<div ng-controller="WeatherAppDialogsController">-->
+  <!--<script type="text/ng-template" id="weather.html">-->
+    <div class="modal-header">
+    <!--<button type="button" class="search" data-dismiss="modal" aria-label="Search">-->
+      <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+    <!--</button>-->
+  <!--<a class="search" href="#">-->
+    <button type="button" class="search vcenter" aria-label="Search" data-ng-click="$ctrl.search('San Francisco')">
+    <i class="fa fa-search vcenter" aria-hidden="true"></i>
+    </button>
+    <!--< </a>-->
+    <!--<h5 class="modal-title vcenter" id="modal-title" style="margin-left: 20px; margin-right: 20px; text-align: center;">Manchester, New Hampshire</h5>-->
+    <input class="modal-title vcenter search" type="search" name="search" id="searchField" maxlength="120" placeholder="Manchester, New Hampshire">
+    <button type="button" class="close vcenter" data-dismiss="dialog" aria-label="Close" data-ng-click="$ctrl.cancel()">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+</div>
+<div class="modal-body modal-body-forecast body-top-border" id="modal-body">
+  <div class="row">
+    <div id="container">
+      <div class="forecast flexaligncenter_sans_right">
+        13
+      </div>
+      <div class="forecast-degree degree">
+        &deg;
+      </div>
+      <div class="flexaligncenter_sans_left lightfont">
+        <div class="row">
+          <div class="farenheit">F</div>
+          <div class="condition_first_line">Clear Skies</div>
+          <div>52% Humidity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer modal-footer-forecast">
+  <div class="panel panel-forecast">
+    <div class="panel-body panel-body-forecast">
+      <div class="row-eq-height row-forecast">
+        <!--<div class="col-xs-1"></div>-->
+        <div class="col-xs-4">
+            <div class="text-center vertical-center">
+              <div class="day">Jan 5</div>
+              <img src="https://openweathermap.org/img/w/01d.png" width="30px" height="30px">
+              <div class="hightemp">13</div>
+              <div class="lowtemp">-2</div>
+            </div>
+        </div>
+        <div class="col-xs-4 forecast-right-border">
+          <div class="text-center vertical-center">
+            <div class="day">Jan 6</div>
+            <img src="https://openweathermap.org/img/w/01d.png" width="30px" height="30px">
+            <div class="hightemp">34</div>
+            <div class="lowtemp">11</div>
+          </div>
+        </div>
+        <div class="col-xs-4 forecast-right-border">
+          <div class="text-center vertical-center">
+            <div class="day">Jan 7</div>
+            <img src="https://openweathermap.org/img/w/01d.png" width="30px" height="30px">
+            <div class="hightemp">27</div>
+            <div class="lowtemp">8</div>
+          </div>
+        </div>
+        <div class="col-xs-4 forecast-right-border">
+          <div class="text-center vertical-center">
+            <div class="day">Jan 8</div>
+            <img src="https://openweathermap.org/img/w/01d.png" width="30px" height="30px">
+            <div class="hightemp">30</div>
+            <div class="lowtemp">14</div>
+          </div>
+        </div>
+        <div class="col-xs-4 forecast-right-border">
+          <div class="text-center vertical-center">
+            <div class="day">Jan 9</div>
+            <img src="https://openweathermap.org/img/w/01d.png" width="30px" height="30px">
+            <div class="hightemp">37</div>
+            <div class="lowtemp">18</div>
+          </div>
+        </div>
+        <!--<div class="col-xs-1"></div>-->
+      </div>
+    </div>
+  </div>
+</div>
+<!--   </script>
+</div> -->
